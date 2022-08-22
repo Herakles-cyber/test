@@ -1,13 +1,133 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    height: 100vh;
-    font-family: 'Ubuntu', sans-serif;
-    overflow: hidden;
-    color: #fff;
-    background-color: #333;
+* { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+} 
+body { 
+    height: 100vh; 
+    font-family: 'Ubuntu', sans-serif; 
+    overflow: hidden; 
+    color: #fff; 
+    background: linear-gradient(10deg, #2483ff 60%, #2c6afb 60%); 
+} 
+nav { 
+    margin-top: 100px; 
+    background-color: #292929; 
+    text-align: center; 
+} 
+ul { 
+    list-style: none; 
+    font-size: 24px; 
+} 
+.menu-item { 
+    display: inline-block; 
+    height: 100px; 
+    width: 200px; 
+    line-height: 100px; 
+    cursor: pointer; 
+    transition: background-color .3s; 
+} 
+.menu-item:hover { 
+    background-color: #363636; 
+} 
+.dropdown { 
+    position: absolute; 
+    width: 200px; 
+} 
+.dropdown li { 
+    display: none; 
+    opacity: 0; 
+    /* tutaj dane są dwie właściwości ponieważ display: none; będziemy sterować gdy najedziemy na którąś z pozycji by nam pokazał się element dropdawn a oppacity przyda się nam do animacji */ 
+    background-color: #50515A; 
+    transition: color .3s; 
+} 
+a { 
+    text-decoration: none; 
+    color: #fff; 
+    transition: color .3s 
+} 
+.dropdown a:hover { 
+    color: royalblue; 
+} 
+.dropdown li:hover { 
+    color: royalblue; 
+} 
+.menu-item:hover .dropdown li { 
+    display: block; 
+    animation: menu1 .5s forwards; 
+} 
+.menu-item:hover .dropdown li:nth-child(2) { 
+    animation-delay: .2s; 
+} 
+.menu-item:hover .dropdown li:nth-child(3) { 
+    animation-delay: .4s; 
+} 
+.menu-item:hover .dropdown li:nth-child(4) { 
+    animation-delay: .6s; 
+} 
+.menu-item:hover .dropdown li:nth-child(5) { 
+    animation-delay: .8s; 
+} 
+.menu-item:hover .dropdown li:nth-child(6) { 
+    animation-delay: 1s; 
+} 
+@keyframes menu1 { 
+    from { 
+        opacity: 0; 
+        transform: rotate(36deg); 
+    } 
+    to { 
+        opacity: 1; 
+        transform: rotate(0); 
+    } 
+} 
+/* pozycja nr 2 */ 
+.two:hover .dropdown li { 
+    /* display: block; */ 
+    /* tutaj display:block; nie jest nam potrzebny ponieważ wcześniej już nadaliśmy go na classe .menu-item */ 
+    animation: menu2 .5s forwards; 
+} 
+@keyframes menu2 { 
+    from { 
+        opacity: 0; 
+        transform: translateY(60px); 
+    } 
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    } 
+} 
+/* pozycja nr 3 */ 
+.three:hover .dropdown li { 
+    animation: menu3 .5s forwards; 
+} 
+@keyframes menu3 { 
+    from { 
+        opacity: 0; 
+        transform: rotateY(-60deg) translateX(60px); 
+    } 
+     
+    to { 
+        opacity: 1; 
+        transform: rotateY(0) translateX(0); 
+         
+    } 
+} 
+/* pozycja nr 4 */ 
+.four:hover .dropdown li { 
+    animation: menu3 .5s forwards; 
+    transform-origin: top; 
+    /* transform-origin: top; dzięki temu jest większy efekt głębi */ 
+} 
+@keyframes menu3 { 
+    from { 
+        opacity: 0; 
+        transform: scale(.8) translateY(-40px); 
+    } 
+     
+    to { 
+        opacity: 1; 
+        transform: scale(1) translateY(0); 
+         
+    } 
 }
